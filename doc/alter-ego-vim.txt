@@ -1,9 +1,8 @@
 *alter-ego.vim*  Jump between alternate files
 
-Jump between alternate files: test, styles, stories etc. Similar to `a.vim`,
-but works with multiple alternate file types.
+Jump between alternate files: tests, styles, stories, fixtures, mocks etc.
 
-Let's say you have a following structure: >
+Let's say you have a project following structure: >
     src
     └── components
         ├── __styles__
@@ -30,6 +29,15 @@ you jump to test file for `.tsx` file, it will find existing test if it ends
 with `.js` or `.tsx` instead of default `.test.tsx`. If existing alternate
 file is not found, it will create a new buffer with correct file name.
 
+INSTALLATION~
+
+Use this repository to install plugin via you favorite package manager.
+For example with using [Plug](https://github.com/junegunn/vim-plug):
+
+```
+Plug 'igorgladkoborodov/alter-ego.vim'
+```
+
 CONFIGURATION~
 
 Note: This config format is not final.
@@ -54,7 +62,7 @@ Files patterns could be configured in `g:alterEgoFileTypes` variable: >
     \   'new': '$dir/__tests__/$file.test.$ext',
     \ },
     \ {
-    \   'type': 'styles',
+    \   'type': 'style',
     \   'match': [['\(.*\)\/__styles__\/\(.*\)\.\(styl\)', 1, 2]],
     \   'dir': ['$dir/__styles__'],
     \   'new': '$dir/__styles__/$file.styl'

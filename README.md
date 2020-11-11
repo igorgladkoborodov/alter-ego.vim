@@ -1,9 +1,8 @@
 # alter-ego.vim
 
-Jump between alternate files: test, styles, stories etc. Similar to `a.vim`, but works with multiple alternate file types.
+Jump between alternate files: tests, styles, stories, fixtures, mocks etc.
 
-
-Let's say you have a following structure:
+Let's say you have a project with following structure:
 ```
 src
 └── components
@@ -30,7 +29,22 @@ You can configure it for different file structure.
 
 It can also work if you the codebase is not very consistent. For example, if you jump to test file for `.tsx` file, it will find existing test if it ends with `.js` or `.tsx` instead of default `.test.tsx`. If existing alternate file is not found, it will create a new buffer with correct file name.
 
-You can add different combination of alternate files. For example: types, resolvers, input types and payload types if you work on for GraphQL server; related controllers, models, views and tests for Ruby on Rails.
+## Installation
+
+Use this repository to install plugin via you favorite package manager. For example with using [Plug](https://github.com/junegunn/vim-plug):
+
+```
+Plug 'igorgladkoborodov/alter-ego.vim'
+```
+
+You can add your mappings to jump between files, for example:
+
+```
+map <silent> <Leader>jf :A<CR>
+map <silent> <Leader>js :A style<CR>
+map <silent> <Leader>jt :A test<CR>
+map <silent> <Leader>jn :A snapshot<CR>
+```
 
 ## Configuration
 
@@ -57,7 +71,7 @@ let g:alterEgoFileTypes = [
 \   'new': '$dir/__tests__/$file.test.$ext',
 \ },
 \ {
-\   'type': 'styles',
+\   'type': 'style',
 \   'match': [['\(.*\)\/__styles__\/\(.*\)\.\(styl\)', 1, 2]],
 \   'dir': ['$dir/__styles__'],
 \   'new': '$dir/__styles__/$file.styl'
@@ -80,8 +94,16 @@ Order of items and patterns is important. When script try to match file name, it
 
 Default configuration represent file structure in the first example.
 
+## Alternatives
+
+* Classic [a.vim](https://www.vim.org/scripts/script.php?script_id=31)
+* [rails.vim](https://github.com/tpope/vim-rails) have powerful related and alternate files navigation for Rails projects
+* [SpaceVim](https://spacevim.org/manage-project-alternate-files/) have [built-in alternate file plugin](https://github.com/SpaceVim/SpaceVim/blob/master/autoload/SpaceVim/plugins/a.vim)
+* [https://vimawesome.com/?q=alternate](https://vimawesome.com/?q=alternate)
+
 ## TODO
 
+- [ ] Finalize config format
 - [ ] Per project config
 - [ ] Scopes
 - [ ] Open in tab, split

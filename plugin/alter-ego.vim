@@ -102,7 +102,7 @@ let g:alterEgoFileTypes = [
 \   'new': '$dir/__tests__/$file.test.$ext',
 \ },
 \ {
-\   'type': 'styles',
+\   'type': 'style',
 \   'match': [['\(.*\)\/__styles__\/\(.*\)\.\(styl\)', 1, 2]],
 \   'dir': ['$dir/__styles__'],
 \   'new': '$dir/__styles__/$file.styl'
