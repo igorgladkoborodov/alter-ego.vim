@@ -3,6 +3,7 @@
 Jump between alternate files: tests, styles, stories, fixtures, mocks etc.
 
 Let's say you have a project following structure: >
+
     src
     └── components
         ├── __styles__
@@ -32,17 +33,16 @@ file is not found, it will create a new buffer with correct file name.
 INSTALLATION~
 
 Use this repository to install plugin via you favorite package manager.
-For example with using [Plug](https://github.com/junegunn/vim-plug):
+For example with using [Plug](https://github.com/junegunn/vim-plug): >
 
-```
-Plug 'igorgladkoborodov/alter-ego.vim'
-```
+    Plug 'igorgladkoborodov/alter-ego.vim'
 
 CONFIGURATION~
 
 Note: This config format is not final.
 
 Files patterns could be configured in `g:alterEgoFileTypes` variable: >
+
     let g:alterEgoFileTypes = [
     \ {
     \   'type': 'snapshot',
@@ -73,11 +73,12 @@ Files patterns could be configured in `g:alterEgoFileTypes` variable: >
     \   'dir': ['$dir'],
     \ },
     \ ]
-<
 
 Each item in this array represent different file type. They have following
 fields:
+
 - `type` - file type. You can switch to that type with `:A fileType` command.
+
 - `match` - array of match rules that will be used to detect file type and find
   original directory and file name of this file. Match rule is an array: first
   item is regular expression; second, third and fourth are regex indexes of
@@ -89,8 +90,10 @@ fields:
   and `src/components` will be the directory and `ComponentName` is file name.
   You can set multple match rules to cover different possible variants of
   this file type name.
+
 - `dir` - array of directories where it will try to find this file. `$dir` and
   `$file` will be replaced with the directory and original file name.
+
 - `new` - pattern that will be used to create a new file if it does not exist.
   `$dir`, `$file` and `$ext` will be replaced with directory, file name and
   extension of original file. If file type does not have `new` field, it will

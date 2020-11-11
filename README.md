@@ -1,6 +1,6 @@
 # alter-ego.vim
 
-Jump between alternate files: tests, styles, stories, fixtures, mocks etc.
+Vim plugin to jump between alternate files: tests, styles, stories, fixtures, mocks etc.
 
 Let's say you have a project with following structure:
 ```
